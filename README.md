@@ -14,35 +14,35 @@ Ensure you have Git installed on your system. You will also need access to your 
 
    First, clone this repository to your local machine:
 
-   \```
+   ```
    git clone https://github.com/Drucial/cursor-settings.git
-   \```
+   ```
 
 2. **Navigate to the Cloned Directory**
 
    Change into the directory where the repository was cloned:
 
-   \```
+   ```
    cd cursor-settings
-   \```
+   ```
 
 3. **Backup Existing Settings**
 
    Before replacing your existing settings, it's a good idea to back them up:
 
-   \```
+   ```
    cp ~/Library/Application\ Support/cursor/user/settings.json ~/Library/Application\ Support/cursor/user/settings.json.backup
    cp ~/Library/Application\ Support/cursor/user/keybindings.json ~/Library/Application\ Support/cursor/user/keybindings.json.backup
-   \```
+   ```
 
 4. **Copy the Settings**
 
    Copy the settings from this repository to your Cursor (or VSCode) settings directory:
 
-   \```
+   ```
    cp settings.json ~/Library/Application\ Support/cursor/user/settings.json
    cp keybindings.json ~/Library/Application\ Support/cursor/user/keybindings.json
-   \```
+   ```
 
 5. **Install Required Extensions**
 
