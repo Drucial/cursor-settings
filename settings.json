@@ -26,6 +26,10 @@
   "workbench.externalBrowser": "Arc", // Use Arc as external browser
   "workbench.layoutControl.enabled": false, // Hide layout control
   "workbench.list.smoothScrolling": true, // Smooth scrolling in lists
+  "zenMode.showTabs": "none",
+  "zenMode.fullScreen": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.restore": false,
 
   // =============================
   // THEME & APPEARANCE (Color, Font, Customizations)
@@ -153,15 +157,15 @@
     "tabs": "JetBrainsMono Nerd Font",
     "titlebar": "JetBrainsMono Nerd Font"
   },
-    "apc.electron": {
-      "backgroundColor": "rgba(123, 123, 123, 0.5)",
-      "frame": false,
-      "transparent": true,
-      "titleBarStyle": "hiddenInset",
-      "vibrancy": "ultra-dark",
-      "opacity": 0.98,  // Range: 0-1 (To go fully transparent, set it to 0)
-      "visualEffectState": "active"
-    },
+  "apc.electron": {
+    "backgroundColor": "rgba(123, 123, 123, 0.5)",
+    "frame": false,
+    "transparent": true,
+    "titleBarStyle": "hiddenInset",
+    "vibrancy": "ultra-dark",
+    "opacity": 0.98, // Range: 0-1 (To go fully transparent, set it to 0)
+    "visualEffectState": "active"
+  },
   "cursor.diffs.useCharacterLevelDiffs": true, // Cursor: use character-level diffs
   "cursor.terminal.usePreviewBox": true, // Cursor: use preview box in terminal
   "vim.cursorStylePerMode.insert": "line", // Vim: line cursor in insert mode
