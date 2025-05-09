@@ -1,1 +1,298 @@
-/Users/drucial/Library/Application Support/cursor/user/keybindings.json
+[
+  // === Tab Navigation (Current Group Only) ===
+  {
+    "key": "cmd+shift+]",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+[",
+    "command": "workbench.action.previousEditorInGroup"
+  },
+  // Remove conflicting keybinds with above
+  {
+    "key": "cmd+shift+]",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "cmd+shift+[",
+    "command": "-workbench.action.previousEditor"
+  },
+
+  // === File & Project Navigation ===
+  {
+    "key": "cmd+shift+o",
+    "command": "workbench.action.openRecent"
+  },
+
+  // === Git / LazyGit ===
+  {
+    "key": "cmd+g",
+    "command": "lazygit.openLazygit"
+  },
+
+  // === Vim-like Navigation (App Wide) ===
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+
+  // === Paging (Nvim Behavior) ===
+  {
+    "key": "ctrl+down",
+    "command": "cursorPageDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "cursorPageUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "list.focusPageDown",
+    "when": "listFocus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "list.focusPageUp",
+    "when": "listFocus"
+  },
+
+  // === Buffer/Editor Management ===
+  {
+    "key": "cmd+ctrl+b",
+    "command": "workbench.action.showAllEditors",
+    "when": "vim.mode == 'Normal'"
+  },
+  // Removes conflicting keybindings for showAllEditors command
+  {
+    "key": "cmd+shift+b",
+    "command": "-workbench.action.tasks.build",
+    "when": "taskCommandsRegistered"
+  },
+
+  // === Vim Command Line Popup ===
+  {
+    "key": "shift+;",
+    "command": "vim.showQuickpickCmdLine",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+
+  // === File Explorer Controls ===
+  // Show, focus, hide fileExplorer
+  {
+    "key": "cmd+b",
+    "command": "revealInExplorer",
+    "when": "editorTextFocus && !sideBarVisible"
+  },
+  {
+    "key": "cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "sideBarVisible"
+  },
+  {
+    "key": "cmd+b",
+    "command": "workbench.files.action.focusFilesExplorer",
+    "when": "!filesExplorerFocus && !editorTextFocus"
+  },
+  {
+    "key": "cmd+n",
+    "command": "workbench.files.action.focusFilesExplorer",
+    "when": "!filesExplorerFocus && sideBarVisible"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+
+  // Add, rename, select file in explorer
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+
+  // === AI Cursor Chat ===
+  {
+    "key": "cmd+l",
+    "command": "aichat.insertselectionintochat",
+    "when": "(editorFocus && editorHasSelection) || !view.workbench.panel.aichat.view.visible"
+  },
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "when": "view.workbench.panel.aichat.view.visible && !editorHasSelection"
+  },
+  // removes conflicting keybinds for above
+  {
+    "key": "shift+cmd+l",
+    "command": "-aichat.insertselectionintochat"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-aichat.newchataction"
+  },
+
+  // === Terminal Controls ===
+  // Toggle the terminal and associated behaviors
+  {
+    "key": "cmd+;",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminal.active"
+  },
+  {
+    "key": "cmd+;",
+    "command": "workbench.action.togglePanel",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.createTerminalEditor"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocusInAny"
+  },
+  // Removes conflicting keybindings for new tab in terminal command
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+
+  // Navigate terminal splits and terminal groups
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+
+  // Maximize the terminal
+  {
+    "key": "ctrl+cmd+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
+  },
+
+  // Kill terminal (only when more than one terminal exists)
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalEditorFocus || (terminalFocus && terminalCount > 1)"
+  },
+
+  // Prevents window closing when closing a terminal window in the panel
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "!terminalFocusInAny"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeActiveEditor"
+  },
+
+  // Kill editor terminal
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.killEditor",
+    "when": "terminalEditorFocus"
+  },
+
+  // === Which-key Controls ===
+  {
+    "key": "backspace",
+    "command": "whichkey.undoKey",
+    "when": "whichkeyVisible"
+  },
+  {
+    "key": "ctrl+=",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "ctrl+cmd+o",
+    "command": "workbench.action.gotoSymbol",
+    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+  },
+  {
+    "key": "shift+cmd+o",
+    "command": "-workbench.action.gotoSymbol",
+    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+  },
+  {
+    "key": "alt+z",
+    "command": "-editor.action.toggleWordWrap"
+  },
+  {
+    "key": "alt+z",
+    "command": "-workbench.action.terminal.sizeToContentWidth",
+    "when": "terminalFocus && terminalHasBeenCreated && terminalIsOpen || terminalFocus && terminalIsOpen && terminalProcessSupported"
+  },
+
+  // === Zen Mode ===
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.toggleZenMode",
+    "when": "!inZenMode"
+  },
+  {
+    "key": "cmd+r z",
+    "command": "-workbench.action.toggleZenMode",
+    "when": "!isAuxiliaryWindowFocusedContext"
+  },
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.exitZenMode",
+    "when": "inZenMode"
+  },
+  {
+    "key": "escape escape",
+    "command": "-workbench.action.exitZenMode",
+    "when": "inZenMode"
+  },
+
+  // === Miscellaneous ===
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+
+  // === Which-key Leader ===
+  {
+    "key": "space",
+    "command": "whichkey.show",
+    "when": "!inputFocus" // This makes it work in any non-input context
+  }
+]

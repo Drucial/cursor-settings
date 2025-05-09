@@ -1,1 +1,450 @@
-/Users/drucial/Library/Application Support/cursor/user/settings.json
+{
+  // =============================
+  // UI SETTINGS (General UI, non-theme)
+  // =============================
+  "breadcrumbs.enabled": false, // Hide breadcrumbs navigation
+  "editor.lineNumbers": "relative", // Show relative line numbers
+  "editor.minimap.enabled": false, // Hide minimap
+  "explorer.autoReveal": false, // Don't auto-reveal files in explorer
+  "explorer.compactFolders": false, // Compact folders in explorer
+  "explorer.expandSingleFolderWorkspaces": false, // Don't auto-expand single folder workspaces
+  "terminal.integrated.scrollback": 10000, // Terminal scrollback buffer
+  "terminal.integrated.smoothScrolling": true, // Smooth scrolling in terminal
+  "window.commandCenter": false, // Hide command center
+  "window.openWithoutArgumentsInNewWindow": "on", // New window behavior
+  "window.restoreFullscreen": false, // Don't restore fullscreen on launch
+  "window.restoreWindows": "none", // Don't restore previous windows
+  "window.title": "${rootName}${separator}${activeFolderMedium}${separator}${activeEditorShort} ${dirty}", // Custom window title
+  "window.titleSeparator": " → ", // Custom window title separator
+  "workbench.activityBar.location": "hidden", // Hide activity bar
+  "workbench.activityBar.orientation": "vertical", // Activity bar orientation
+  "workbench.editor.centeredLayoutFixedWidth": true, // Centered layout
+  "workbench.editor.closeOnFileDelete": true, // Close editor when file is deleted
+  "workbench.editor.editorActionsLocation": "hidden", // Hide editor actions
+  "workbench.editor.restoreViewState": false, // Don't restore editor view state
+  "workbench.editor.showTabs": "none", // Hide editor tabs
+  "workbench.externalBrowser": "Arc", // Use Arc as external browser
+  "workbench.layoutControl.enabled": false, // Hide layout control
+  "workbench.list.smoothScrolling": true, // Smooth scrolling in lists
+
+  // =============================
+  // THEME & APPEARANCE (Color, Font, Customizations)
+  // =============================
+  "editor.fontFamily": "JetBrainsMono Nerd Font", // Editor font
+  "editor.fontSize": 13, // Editor font size
+  "terminal.integrated.fontSize": 13, // Terminal font size
+  "workbench.colorCustomizations": {
+    "[Aura Soft Dark]": {
+      "activityBar.background": "#21202E",
+      "activityBar.border": "#3A3855",
+      "editor.lineHighlightBackground": "#ffffff08",
+      "editor.selectionBackground": "#A277ff35",
+      "editor.inactiveSelectionBackground": "#A277ff35",
+      "editorStickyScroll.background": "#29263c85",
+      "editorGroup.border": "#454364",
+      "panel.background": "#21202e",
+      "panel.border": "#454364",
+      "sideBar.background": "#21202E",
+      "sideBar.border": "#3A3855",
+      "sideBarTitle.background": "#21202E",
+      "statusBar.background": "#21202E",
+      "statusBar.border": "#3A3855",
+      "statusBar.noFolderBackground": "#21202E",
+      "terminal.inactiveSelectionBackground": "#A277ff35",
+      "titleBar.activeBackground": "#21202E",
+      "titleBar.border": "#3A3855"
+    }
+  },
+  "workbench.colorTheme": "Aura Soft Dark", // Main color theme
+  "workbench.preferredDarkColorTheme": "Aura Soft Dark", // Preferred dark theme
+  "workbench.preferredHighContrastColorTheme": "Aura Dark", // High contrast theme
+
+  // =============================
+  // TWEAKS TO NATIVE BEHAVIOR (VSCode/Cursor core behaviors)
+  // =============================
+  "editor.accessibilitySupport": "off", // Disable accessibility support
+  "editor.cursorBlinking": "smooth", // Smooth cursor blinking
+  "editor.cursorSmoothCaretAnimation": "on", // Smooth caret animation
+  "editor.cursorStyle": "block", // Block cursor style
+  "editor.cursorSurroundingLines": 16, // Context lines around cursor
+  "editor.cursorSurroundingLinesStyle": "all", // Context lines style
+  "editor.multiCursorLimit": 100, // Max multicursors
+  "editor.smoothScrolling": true, // Smooth scrolling in editor
+  "files.exclude": {
+    "**/.turbo": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/yarn-error.log": true
+  }, // Don't show these files in the explorer
+  "files.hotExit": "off", // Don't keep unsaved files on exit
+  "git.enableStatusBarSync": false, // Hide git status bar sync
+  "git.openRepositoryInParentFolders": "always", // Always open git repo in parent folders
+  "gitlens.statusBar.enabled": false, // Hide GitLens status bar
+  "gitlens.statusBar.pullRequests.enabled": false, // Hide GitLens PR status
+  "terminal.external.linuxExec": "kitty", // Use kitty as external terminal (Linux)
+  "terminal.external.osxExec": "kitty", // Use kitty as external terminal (macOS)
+  "terminal.integrated.allowChords": false, // Disallow key chords in terminal
+  "terminal.integrated.confirmOnExit": "hasChildProcesses", // Confirm on exit if child processes
+  "terminal.integrated.cursorBlinking": true, // Blinking cursor in terminal
+  "terminal.integrated.cursorStyleInactive": "none", // No cursor when inactive
+  "terminal.integrated.defaultProfile.osx": "zsh", // Default shell (macOS)
+  "terminal.integrated.enablePersistentSessions": false, // No persistent terminal sessions
+  "terminal.integrated.hideOnStartup": "always", // Hide terminal on startup
+  "terminal.integrated.inheritEnv": false, // Don't inherit env in terminal
+  "terminal.integrated.localEchoExcludePrograms": [
+    "vim",
+    "vi",
+    "nano",
+    "tmux",
+    "nvim"
+  ], // Exclude local echo for these
+  "terminal.integrated.persistentSessionReviveProcess": "never", // Never revive terminal processes
+  "terminal.integrated.shellIntegration.enabled": false, // Disable shell integration
+  "terminal.integrated.tabs.location": "left", // Terminal tabs on left
+  "terminal.integrated.tabs.title": "${sequence}${separator}${workspaceFolderName}", // Terminal tab title
+
+  // =============================
+  // CODE-SPECIFIC SETTINGS (Formatters, language overrides, code tools)
+  // =============================
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "rubyLsp.rubyExecutablePath": "/opt/homebrew/opt/asdf/bin/asd", // Ruby LSP path
+
+  // =============================
+  // EXTENSION-SPECIFIC SETTINGS (Vim, WhichKey, Cursor, etc)
+  // =============================
+  "apc.font.family": "JetBrainsMono Nerd Font", // UI font
+  "apc.monospace.font.family": "JetBrainsMono Nerd Font", // Monospace font
+  "apc.parts.font.family": {
+    "activityBar": "JetBrainsMono Nerd Font",
+    "auxiliarybar": "JetBrainsMono Nerd Font",
+    "extension-editor": "JetBrainsMono Nerd Font",
+    "monaco-menu": "JetBrainsMono Nerd Font",
+    "panel": "JetBrainsMono Nerd Font",
+    "settings-body": "JetBrainsMono Nerd Font",
+    "sidebar": "JetBrainsMono Nerd Font",
+    "statusbar": "JetBrainsMono Nerd Font",
+    "tabs": "JetBrainsMono Nerd Font",
+    "titlebar": "JetBrainsMono Nerd Font"
+  },
+    "apc.electron": {
+      "backgroundColor": "rgba(123, 123, 123, 0.5)",
+      "frame": false,
+      "transparent": true,
+      "titleBarStyle": "hiddenInset",
+      "vibrancy": "ultra-dark",
+      "opacity": 0.98,  // Range: 0-1 (To go fully transparent, set it to 0)
+      "visualEffectState": "active"
+    },
+  "cursor.diffs.useCharacterLevelDiffs": true, // Cursor: use character-level diffs
+  "cursor.terminal.usePreviewBox": true, // Cursor: use preview box in terminal
+  "vim.cursorStylePerMode.insert": "line", // Vim: line cursor in insert mode
+  "vim.cursorStylePerMode.normal": "block", // Vim: block cursor in normal mode
+  "vim.easymotion": true, // Vim: enable easymotion
+  "vim.leader": " ", // Vim: leader key
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["<space>"], "commands": ["whichkey.show"] },
+    { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] },
+    { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] },
+    { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] },
+    { "before": ["/", "b"], "after": ["<leader>", "<leader>", "b"] }
+  ],
+  "vim.replaceWithRegister": true, // Vim: enable replace with register
+  "vim.smartRelativeLine": true, // Vim: smart relative line numbers
+  "vim.useSystemClipboard": true, // Vim: use system clipboard
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<space>"], "commands": ["whichkey.show"] },
+    { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] },
+    { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] },
+    { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] },
+    { "before": ["/", "b"], "after": ["<leader>", "<leader>", "b"] }
+  ],
+  "whichkey.bindingOverrides": [
+    {
+      "keys": "/",
+      "name": "+EasyMotion",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "w",
+          "name": "Jump to word",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "w"]
+          }
+        },
+        {
+          "key": "b",
+          "name": "Jump backward",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "b"]
+          }
+        },
+        {
+          "key": "j",
+          "name": "Jump to line below",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "j"]
+          }
+        },
+        {
+          "key": "k",
+          "name": "Jump to line above",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["/", "k"]
+          }
+        }
+      ]
+    },
+    {
+      "keys": "c",
+      "name": "+Code",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "a",
+          "name": "Code Actions",
+          "type": "command",
+          "command": "editor.action.quickFix"
+        },
+        {
+          "key": "f",
+          "name": "Format Document",
+          "type": "command",
+          "command": "editor.action.formatDocument"
+        },
+        {
+          "key": "r",
+          "name": "Find References",
+          "type": "command",
+          "command": "editor.action.goToReferences"
+        },
+        {
+          "key": "d",
+          "name": "Peek Definition",
+          "type": "command",
+          "command": "editor.action.peekDefinition"
+        },
+        {
+          "key": "D",
+          "name": "Go to Definition",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "d",
+              "name": "Go to Definition",
+              "type": "command",
+              "command": "editor.action.revealDefinition"
+            },
+            {
+              "key": "s",
+              "name": "Go to Definition (split)",
+              "type": "command",
+              "command": "editor.action.revealDefinitionAside"
+            }
+          ]
+        },
+        {
+          "key": "i",
+          "name": "Show Info",
+          "type": "command",
+          "command": "editor.action.showHover"
+        },
+        {
+          "key": "s",
+          "name": "Trigger Suggest",
+          "type": "command",
+          "command": "editor.action.triggerSuggest"
+        },
+        {
+          "key": "R",
+          "name": "Rename Symbol",
+          "type": "command",
+          "command": "editor.action.rename"
+        },
+        {
+          "key": "t",
+          "name": "Peek Type Definition",
+          "type": "command",
+          "command": "editor.action.peekTypeDefinition"
+        },
+        {
+          "key": "T",
+          "name": "Go to Type Definition",
+          "type": "command",
+          "command": "editor.action.goToTypeDefinition"
+        },
+        {
+          "key": "o",
+          "name": "Organize Imports",
+          "type": "command",
+          "command": "editor.action.organizeImports"
+        },
+        {
+          "key": "m",
+          "name": "Show Problems",
+          "type": "command",
+          "command": "workbench.actions.view.problems"
+        }
+      ]
+    },
+    {
+      "keys": "f",
+      "name": "+Find/Files",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "Find File",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
+        },
+        {
+          "key": "b",
+          "name": "Find Open Buffer",
+          "type": "command",
+          "command": "workbench.action.showAllEditors"
+        },
+        {
+          "key": "s",
+          "name": "Search String in Files",
+          "type": "command",
+          "command": "workbench.action.quickTextSearch"
+        },
+        {
+          "key": "D",
+          "name": "Delete current file",
+          // "icon": "trash",
+          "type": "commands",
+          "commands": [
+            "workbench.files.action.showActiveFileInExplorer",
+            "deleteFile"
+          ]
+        },
+        {
+          "key": "S",
+          "name": "Save all files",
+          // "icon": "save-all",
+          "type": "command",
+          "command": "workbench.action.files.saveAll"
+        }
+      ]
+    },
+    {
+      "keys": "s",
+      "name": "+Surround",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "w",
+          "name": "Surround word",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "i", "w"]
+          }
+        },
+        {
+          "key": "l",
+          "name": "Surround line",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "s"]
+          }
+        },
+        {
+          "key": "e",
+          "name": "Surround to end of line",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "$"]
+          }
+        },
+        {
+          "key": "p",
+          "name": "Surround paragraph",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["y", "s", "i", "p"]
+          }
+        },
+        {
+          "key": "d",
+          "name": "Delete surrounding",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["d", "s"]
+          }
+        },
+        {
+          "key": "c",
+          "name": "Change surrounding",
+          "type": "command",
+          "command": "vim.remap",
+          "args": {
+            "after": ["c", "s"]
+          }
+        },
+        {
+          "key": "t",
+          "name": "Tag operations",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "t",
+              "name": "Surround with tag",
+              "type": "command",
+              "command": "editor.emmet.action.wrapWithAbbreviation"
+            },
+            {
+              "key": "c",
+              "name": "Change surrounding tag",
+              "type": "command",
+              "command": "vim.remap",
+              "args": {
+                "after": ["c", "s", "t", "<"]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
