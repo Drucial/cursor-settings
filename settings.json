@@ -3,6 +3,7 @@
   // UI SETTINGS (General UI, non-theme)
   // =============================
   "breadcrumbs.enabled": false, // Hide breadcrumbs navigation
+  "cursor.terminal.usePreviewBox": true,
   "editor.lineNumbers": "relative", // Show relative line numbers
   "editor.minimap.enabled": false, // Hide minimap
   "explorer.autoReveal": false, // Don't auto-reveal files in explorer
@@ -28,15 +29,16 @@
   "workbench.list.smoothScrolling": true, // Smooth scrolling in lists
   "zenMode.showTabs": "none",
   "zenMode.fullScreen": false,
-  "zenMode.hideStatusBar": false,
+  "zenMode.hideStatusBar": true,
   "zenMode.restore": false,
 
   // =============================
   // THEME & APPEARANCE (Color, Font, Customizations)
   // =============================
   "editor.fontFamily": "JetBrainsMono Nerd Font", // Editor font
-  "editor.fontSize": 13, // Editor font size
-  "terminal.integrated.fontSize": 13, // Terminal font size
+  "editor.fontSize": 14, // Editor font size
+  "terminal.integrated.fontSize": 14, // Terminal font size
+  "terminal.integrated.gpuAcceleration": "on",
   "workbench.colorCustomizations": {
     "[Aura Soft Dark]": {
       "activityBar.background": "#21202E",
@@ -48,6 +50,7 @@
       "editorGroup.border": "#454364",
       "panel.background": "#21202e",
       "panel.border": "#454364",
+      "panelTitle.border": "#454364",
       "sideBar.background": "#21202E",
       "sideBar.border": "#3A3855",
       "sideBarTitle.background": "#21202E",
@@ -57,9 +60,35 @@
       "terminal.inactiveSelectionBackground": "#A277ff35",
       "titleBar.activeBackground": "#21202E",
       "titleBar.border": "#3A3855"
+    },
+    "[Rosé Pine]": {
+      "activityBar.border": "#403d52",
+      "panel.border": "#403d52",
+      "sideBar.border": "#403d52",
+      "statusBar.border": "#403d52",
+      "editorGroup.border": "#403d52",
+      "titleBar.border": "#403d52",
+      "panelTitle.border": "#403d52",
+      "terminal.background": "#191724",
+      "terminal.inactiveSelectionBackground": "#191724",
+      "panel.background": "#191724"
+    },
+    "[Rosé Pine Moon]": {
+      "activityBar.border": "#44415a",
+      "panel.border": "#44415a",
+      "sideBar.border": "#44415a",
+      "statusBar.border": "#44415a",
+      "editorGroup.border": "#44415a",
+      "titleBar.border": "#44415a",
+      "panelTitle.border": "#44415a",
+      "terminal.background": "#232136",
+      "terminal.inactiveSelectionBackground": "#232136",
+      "panel.background": "#232136",
+      "editorIndentGuide.background1": "#2a283e", // normal indent guides
+      "editorIndentGuide.activeBackground1": "#9ccfd8" // active indent guide
     }
   },
-  "workbench.colorTheme": "Aura Soft Dark", // Main color theme
+  "workbench.colorTheme": "Rosé Pine Moon", // Main color theme
   "workbench.preferredDarkColorTheme": "Aura Soft Dark", // Preferred dark theme
   "workbench.preferredHighContrastColorTheme": "Aura Dark", // High contrast theme
 
@@ -166,8 +195,7 @@
     "opacity": 0.98, // Range: 0-1 (To go fully transparent, set it to 0)
     "visualEffectState": "active"
   },
-  "cursor.diffs.useCharacterLevelDiffs": true, // Cursor: use character-level diffs
-  "cursor.terminal.usePreviewBox": true, // Cursor: use preview box in terminal
+  "cursor.diffs.useCharacterLevelDiffs": true, // Cursor: use preview box in terminal
   "vim.cursorStylePerMode.insert": "line", // Vim: line cursor in insert mode
   "vim.cursorStylePerMode.normal": "block", // Vim: block cursor in normal mode
   "vim.easymotion": true, // Vim: enable easymotion

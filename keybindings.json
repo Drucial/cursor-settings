@@ -93,30 +93,30 @@
 
   // === File Explorer Controls ===
   // Show, focus, hide fileExplorer
-  {
-    "key": "cmd+b",
-    "command": "revealInExplorer",
-    "when": "editorTextFocus && !sideBarVisible"
-  },
-  {
-    "key": "cmd+b",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "sideBarVisible"
-  },
-  {
-    "key": "cmd+b",
-    "command": "workbench.files.action.focusFilesExplorer",
-    "when": "!filesExplorerFocus && !editorTextFocus"
-  },
-  {
-    "key": "cmd+n",
-    "command": "workbench.files.action.focusFilesExplorer",
-    "when": "!filesExplorerFocus && sideBarVisible"
-  },
-  {
-    "key": "cmd+n",
-    "command": "-workbench.action.files.newUntitledFile"
-  },
+  // {
+  //   "key": "cmd+b",
+  //   "command": "revealInExplorer",
+  //   "when": "editorTextFocus && !sideBarVisible"
+  // },
+  // {
+  //   "key": "cmd+b",
+  //   "command": "workbench.action.toggleSidebarVisibility",
+  //   "when": "sideBarVisible"
+  // },
+  // {
+  //   "key": "cmd+b",
+  //   "command": "workbench.files.action.focusFilesExplorer",
+  //   "when": "!filesExplorerFocus && !editorTextFocus"
+  // },
+  // {
+  //   "key": "cmd+n",
+  //   "command": "workbench.files.action.focusFilesExplorer",
+  //   "when": "!filesExplorerFocus && sideBarVisible"
+  // },
+  // {
+  //   "key": "cmd+n",
+  //   "command": "-workbench.action.files.newUntitledFile"
+  // },
 
   // Add, rename, select file in explorer
   {
@@ -135,26 +135,26 @@
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
 
-  // === AI Cursor Chat ===
-  {
-    "key": "cmd+l",
-    "command": "aichat.insertselectionintochat",
-    "when": "(editorFocus && editorHasSelection) || !view.workbench.panel.aichat.view.visible"
-  },
-  {
-    "key": "cmd+l",
-    "command": "workbench.action.toggleAuxiliaryBar",
-    "when": "view.workbench.panel.aichat.view.visible && !editorHasSelection"
-  },
-  // removes conflicting keybinds for above
-  {
-    "key": "shift+cmd+l",
-    "command": "-aichat.insertselectionintochat"
-  },
-  {
-    "key": "cmd+l",
-    "command": "-aichat.newchataction"
-  },
+  // // === AI Cursor Chat ===
+  // {
+  //   "key": "cmd+l",
+  //   "command": "aichat.insertselectionintochat",
+  //   "when": "(editorFocus && editorHasSelection) || !view.workbench.panel.aichat.view.visible"
+  // },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "workbench.action.toggleAuxiliaryBar",
+  //   "when": "view.workbench.panel.aichat.view.visible && !editorHasSelection"
+  // },
+  // // removes conflicting keybinds for above
+  // {
+  //   "key": "shift+cmd+l",
+  //   "command": "-aichat.insertselectionintochat"
+  // },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "-aichat.newchataction"
+  // },
 
   // === Terminal Controls ===
   // Toggle the terminal and associated behaviors
@@ -294,5 +294,9 @@
     "key": "space",
     "command": "whichkey.show",
     "when": "!inputFocus" // This makes it work in any non-input context
+  },
+  {
+    "key": "cmd+m",
+    "command": "editor.emmet.action.wrapWithAbbreviation"
   }
 ]
