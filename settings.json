@@ -11,6 +11,7 @@
   "explorer.expandSingleFolderWorkspaces": false, // Don't auto-expand single folder workspaces
   "terminal.integrated.scrollback": 10000, // Terminal scrollback buffer
   "terminal.integrated.smoothScrolling": true, // Smooth scrolling in terminal
+  "terminal.integrated.tabs.enabled": false, // No tabbar in terminal
   "window.commandCenter": false, // Hide command center
   "window.openWithoutArgumentsInNewWindow": "on", // New window behavior
   "window.restoreFullscreen": false, // Don't restore fullscreen on launch
@@ -47,6 +48,7 @@
       "editor.selectionBackground": "#A277ff35",
       "editor.inactiveSelectionBackground": "#A277ff35",
       "editorStickyScroll.background": "#29263c85",
+      "editorStickyScroll.border": "#3A3855",
       "editorGroup.border": "#454364",
       "panel.background": "#21202e",
       "panel.border": "#454364",
@@ -84,6 +86,7 @@
       "terminal.background": "#232136",
       "terminal.inactiveSelectionBackground": "#232136",
       "panel.background": "#232136",
+      "editorStickyScroll.border": "#44415a",
       "editorIndentGuide.background1": "#2a283e", // normal indent guides
       "editorIndentGuide.activeBackground1": "#9ccfd8" // active indent guide
     }
@@ -91,6 +94,29 @@
   "workbench.colorTheme": "Rosé Pine Moon", // Main color theme
   "workbench.preferredDarkColorTheme": "Aura Soft Dark", // Preferred dark theme
   "workbench.preferredHighContrastColorTheme": "Aura Dark", // High contrast theme
+  "apc.font.family": "JetBrainsMono Nerd Font", // UI font
+  "apc.monospace.font.family": "JetBrainsMono Nerd Font", // Monospace font
+  "apc.parts.font.family": {
+    "activityBar": "JetBrainsMono Nerd Font",
+    "auxiliarybar": "JetBrainsMono Nerd Font",
+    "extension-editor": "JetBrainsMono Nerd Font",
+    "monaco-menu": "JetBrainsMono Nerd Font",
+    "panel": "JetBrainsMono Nerd Font",
+    "settings-body": "JetBrainsMono Nerd Font",
+    "sidebar": "JetBrainsMono Nerd Font",
+    "statusbar": "JetBrainsMono Nerd Font",
+    "tabs": "JetBrainsMono Nerd Font",
+    "titlebar": "JetBrainsMono Nerd Font"
+  },
+  "apc.electron": {
+    "backgroundColor": "rgba(123, 123, 123, 0.5)",
+    "frame": false,
+    "transparent": true,
+    "titleBarStyle": "hiddenInset",
+    "vibrancy": "ultra-dark",
+    "opacity": 0.98, // Range: 0-1 (To go fully transparent, set it to 0)
+    "visualEffectState": "active"
+  },
 
   // =============================
   // TWEAKS TO NATIVE BEHAVIOR (VSCode/Cursor core behaviors)
@@ -172,52 +198,44 @@
   // =============================
   // EXTENSION-SPECIFIC SETTINGS (Vim, WhichKey, Cursor, etc)
   // =============================
-  "apc.font.family": "JetBrainsMono Nerd Font", // UI font
-  "apc.monospace.font.family": "JetBrainsMono Nerd Font", // Monospace font
-  "apc.parts.font.family": {
-    "activityBar": "JetBrainsMono Nerd Font",
-    "auxiliarybar": "JetBrainsMono Nerd Font",
-    "extension-editor": "JetBrainsMono Nerd Font",
-    "monaco-menu": "JetBrainsMono Nerd Font",
-    "panel": "JetBrainsMono Nerd Font",
-    "settings-body": "JetBrainsMono Nerd Font",
-    "sidebar": "JetBrainsMono Nerd Font",
-    "statusbar": "JetBrainsMono Nerd Font",
-    "tabs": "JetBrainsMono Nerd Font",
-    "titlebar": "JetBrainsMono Nerd Font"
-  },
-  "apc.electron": {
-    "backgroundColor": "rgba(123, 123, 123, 0.5)",
-    "frame": false,
-    "transparent": true,
-    "titleBarStyle": "hiddenInset",
-    "vibrancy": "ultra-dark",
-    "opacity": 0.98, // Range: 0-1 (To go fully transparent, set it to 0)
-    "visualEffectState": "active"
-  },
   "cursor.diffs.useCharacterLevelDiffs": true, // Cursor: use preview box in terminal
+  "cursor.cpp.enablePartialAccepts": true, // Enables one word accepts with ⌘→
   "vim.cursorStylePerMode.insert": "line", // Vim: line cursor in insert mode
   "vim.cursorStylePerMode.normal": "block", // Vim: block cursor in normal mode
   "vim.easymotion": true, // Vim: enable easymotion
   "vim.leader": " ", // Vim: leader key
-  "vim.normalModeKeyBindingsNonRecursive": [
-    // { "before": ["<space>"], "commands": ["whichkey.show"] },
-    { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] },
-    { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] },
-    { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] },
-    { "before": ["/", "b"], "after": ["<leader>", "<leader>", "b"] }
-  ],
   "vim.replaceWithRegister": true, // Vim: enable replace with register
   "vim.smartRelativeLine": true, // Vim: smart relative line numbers
   "vim.useSystemClipboard": true, // Vim: use system clipboard
+  "vim.normalModeKeyBindings": [
+    { "before": ["-"], "commands": [{ "command": "oil-code.open" }] },
+    { "before": ["<cr>"], "commands": [{ "command": "oil-code.select" }] },
+    { "before": ["<c-l>"], "commands": [{ "command": "oil-code.refresh" }] },
+    { "before": ["`"], "commands": [{ "command": "oil-code.cd" }] }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // { "before": ["<space>"], "commands": ["whichkey.show"] },
+    // EasyMotion shortcuts: /w, /j, /k, /b trigger which-key EasyMotion menu
+    { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] }, // /w → Space+Space+w (EasyMotion word jump)
+    { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] }, // /j → Space+Space+j (EasyMotion line below)
+    { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] }, // /k → Space+Space+k (EasyMotion line above)
+    { "before": ["/", "b"], "after": ["<leader>", "<leader>", "b"] } // /b → Space+Space+b (EasyMotion backward)
+  ],
   "vim.visualModeKeyBindingsNonRecursive": [
     // { "before": ["<space>"], "commands": ["whichkey.show"] },
-    { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] },
-    { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] },
-    { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] },
-    { "before": ["/", "b"], "after": ["<leader>", "<leader>", "b"] }
+    // EasyMotion shortcuts: /w, /j, /k, /b trigger which-key EasyMotion menu (visual mode)
+    { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] }, // /w → Space+Space+w (EasyMotion word jump)
+    { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] }, // /j → Space+Space+j (EasyMotion line below)
+    { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] }, // /k → Space+Space+k (EasyMotion line above)
+    { "before": ["/", "b"], "after": ["<leader>", "<leader>", "b"] } // /b → Space+Space+b (EasyMotion backward)
   ],
   "whichkey.bindingOverrides": [
+    {
+      "keys": " ",
+      "name": "Show Open Editors",
+      "type": "command",
+      "command": "workbench.action.showAllEditors"
+    },
     {
       "keys": "/",
       "name": "+EasyMotion",
@@ -475,42 +493,6 @@
               }
             }
           ]
-        }
-      ]
-    }
-  ],
-  "terminal.integrated.tabs.enabled": false,
-  "cursor.cpp.enablePartialAccepts": true,
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["-"],
-      "commands": [
-        {
-          "command": "oil-code.open"
-        }
-      ]
-    },
-    {
-      "before": ["<cr>"],
-      "commands": [
-        {
-          "command": "oil-code.select"
-        }
-      ]
-    },
-    {
-      "before": ["<c-l>"],
-      "commands": [
-        {
-          "command": "oil-code.refresh"
-        }
-      ]
-    },
-    {
-      "before": ["`"],
-      "commands": [
-        {
-          "command": "oil-code.cd"
         }
       ]
     }

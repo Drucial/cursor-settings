@@ -1,23 +1,26 @@
 [
   // === Tab Navigation (Current Group Only) ===
+  // Editor group navigation using default Cmd+Shift+[/] keys
   {
-    "key": "cmd+shift+right",
+    "key": "cmd+shift+]",
     "command": "workbench.action.nextEditorInGroup",
     "when": "!terminalFocusInAny"
   },
   {
-    "key": "cmd+shift+left",
+    "key": "cmd+shift+[",
     "command": "workbench.action.previousEditorInGroup",
     "when": "!terminalFocusInAny"
   },
-  // Remove conflicting default keybindings for AST selection
+  // Terminal tab navigation using same keys when in terminal
   {
-    "key": "cmd+shift+right",
-    "command": "-editor.action.smartSelect.expand"
+    "key": "cmd+shift+]",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocusInAny"
   },
   {
-    "key": "cmd+shift+left",
-    "command": "-editor.action.smartSelect.shrink"
+    "key": "cmd+shift+[",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocusInAny"
   },
 
   // === Resize the current selected pane ===
@@ -153,17 +156,65 @@
     "key": "cmd+t",
     "command": "-workbench.action.showAllSymbols"
   },
-
-  // Cycle terminal tabs (instances)
+  // Create editor terminal
   {
-    "key": "cmd+shift+right",
-    "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocusInAny"
+    "key": "ctrl+t",
+    "command": "workbench.action.createTerminalEditor"
+  },
+
+  // Split terminal contextually based on panel position
+  {
+    "key": "cmd+\\",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && panelPosition == 'bottom'"
   },
   {
-    "key": "cmd+shift+left",
-    "command": "workbench.action.terminal.focusPrevious",
-    "when": "terminalFocusInAny"
+    "key": "cmd+\\",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && panelPosition == 'right'"
+  },
+
+  // Navigate terminal splits with vim-style keys (contextual to panel position)
+  // Horizontal navigation when terminal panel is at bottom
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && panelPosition == 'bottom'"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && panelPosition == 'bottom'"
+  },
+  // Vertical navigation when terminal panel is at right
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && panelPosition == 'right'"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && panelPosition == 'right'"
+  },
+
+  // Close editor terminal when in editor terminal focus
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "terminalEditorFocus"
+  },
+  // Close regular editor when not in any terminal
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "!terminalFocusInAny"
+  },
+  // Close terminal tab when in panel terminal focus
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus && !terminalEditorFocus && terminalCount > 1"
   },
 
   // Maximize the terminal
