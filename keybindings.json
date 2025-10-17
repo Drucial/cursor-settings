@@ -1,22 +1,33 @@
 [
   // === Tab Navigation (Current Group Only) ===
   {
-    "key": "cmd+shift+]",
+    "key": "cmd+shift+right",
     "command": "workbench.action.nextEditorInGroup",
-    "when": "editorTextFocus"
+    "when": "!terminalFocusInAny"
   },
   {
-    "key": "cmd+shift+[",
-    "command": "workbench.action.previousEditorInGroup"
+    "key": "cmd+shift+left",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "!terminalFocusInAny"
   },
-  // Remove conflicting keybinds with above
+  // Remove conflicting default keybindings for AST selection
   {
-    "key": "cmd+shift+]",
-    "command": "-workbench.action.nextEditor"
+    "key": "cmd+shift+right",
+    "command": "-editor.action.smartSelect.expand"
   },
   {
-    "key": "cmd+shift+[",
-    "command": "-workbench.action.previousEditor"
+    "key": "cmd+shift+left",
+    "command": "-editor.action.smartSelect.shrink"
+  },
+
+  // === Resize the current selected pane ===
+  {
+    "key": "ctrl+=",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "workbench.action.decreaseViewSize"
   },
 
   // === File & Project Navigation ===
@@ -24,11 +35,38 @@
     "key": "cmd+shift+o",
     "command": "workbench.action.openRecent"
   },
-
-  // === Git / LazyGit ===
   {
-    "key": "cmd+g",
-    "command": "lazygit.openLazygit"
+    "key": "ctrl+cmd+o",
+    "command": "workbench.action.gotoSymbol",
+    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+  },
+  {
+    "key": "shift+cmd+o",
+    "command": "-workbench.action.gotoSymbol",
+    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+  },
+  // Add, rename, select file in explorer
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+
+  // === Vim Command Line Popup ===
+  {
+    "key": "shift+;",
+    "command": "vim.showQuickpickCmdLine",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
   },
 
   // === Vim-like Navigation (App Wide) ===
@@ -70,91 +108,28 @@
     "command": "list.focusPageUp",
     "when": "listFocus"
   },
-
-  // === Buffer/Editor Management ===
+  // Emmet wrap tags
   {
-    "key": "cmd+ctrl+b",
-    "command": "workbench.action.showAllEditors",
-    "when": "vim.mode == 'Normal'"
-  },
-  // Removes conflicting keybindings for showAllEditors command
-  {
-    "key": "cmd+shift+b",
-    "command": "-workbench.action.tasks.build",
-    "when": "taskCommandsRegistered"
+    "key": "cmd+m",
+    "command": "editor.emmet.action.wrapWithAbbreviation"
   },
 
-  // === Vim Command Line Popup ===
+  // === Which-key Controls ===
   {
-    "key": "shift+;",
-    "command": "vim.showQuickpickCmdLine",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-
-  // === File Explorer Controls ===
-  // Show, focus, hide fileExplorer
-  // {
-  //   "key": "cmd+b",
-  //   "command": "revealInExplorer",
-  //   "when": "editorTextFocus && !sideBarVisible"
-  // },
-  // {
-  //   "key": "cmd+b",
-  //   "command": "workbench.action.toggleSidebarVisibility",
-  //   "when": "sideBarVisible"
-  // },
-  // {
-  //   "key": "cmd+b",
-  //   "command": "workbench.files.action.focusFilesExplorer",
-  //   "when": "!filesExplorerFocus && !editorTextFocus"
-  // },
-  // {
-  //   "key": "cmd+n",
-  //   "command": "workbench.files.action.focusFilesExplorer",
-  //   "when": "!filesExplorerFocus && sideBarVisible"
-  // },
-  // {
-  //   "key": "cmd+n",
-  //   "command": "-workbench.action.files.newUntitledFile"
-  // },
-
-  // Add, rename, select file in explorer
-  {
-    "key": "a",
-    "command": "explorer.newFile",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "space",
+    "command": "whichkey.show",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   {
-    "key": "r",
-    "command": "renameFile",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "space",
+    "command": "whichkey.show",
+    "when": "editorTextFocus && vim.mode == 'Visual'"
   },
   {
-    "key": "enter",
-    "command": "-renameFile",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "backspace",
+    "command": "whichkey.undoKey",
+    "when": "whichkeyVisible"
   },
-
-  // // === AI Cursor Chat ===
-  // {
-  //   "key": "cmd+l",
-  //   "command": "aichat.insertselectionintochat",
-  //   "when": "(editorFocus && editorHasSelection) || !view.workbench.panel.aichat.view.visible"
-  // },
-  // {
-  //   "key": "cmd+l",
-  //   "command": "workbench.action.toggleAuxiliaryBar",
-  //   "when": "view.workbench.panel.aichat.view.visible && !editorHasSelection"
-  // },
-  // // removes conflicting keybinds for above
-  // {
-  //   "key": "shift+cmd+l",
-  //   "command": "-aichat.insertselectionintochat"
-  // },
-  // {
-  //   "key": "cmd+l",
-  //   "command": "-aichat.newchataction"
-  // },
 
   // === Terminal Controls ===
   // Toggle the terminal and associated behaviors
@@ -169,10 +144,6 @@
     "when": "terminal.active"
   },
   {
-    "key": "ctrl+t",
-    "command": "workbench.action.createTerminalEditor"
-  },
-  {
     "key": "cmd+t",
     "command": "workbench.action.terminal.new",
     "when": "terminalFocusInAny"
@@ -183,120 +154,22 @@
     "command": "-workbench.action.showAllSymbols"
   },
 
-  // Navigate terminal splits and terminal groups
+  // Cycle terminal tabs (instances)
   {
-    "key": "cmd+[",
-    "command": "workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus"
+    "key": "cmd+shift+right",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocusInAny"
   },
   {
-    "key": "cmd+]",
-    "command": "workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus"
+    "key": "cmd+shift+left",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocusInAny"
   },
 
   // Maximize the terminal
   {
-    "key": "ctrl+cmd+m",
+    "key": "cmd+shift+m",
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
-  },
-
-  // Kill terminal (only when more than one terminal exists)
-  {
-    "key": "cmd+w",
-    "command": "workbench.action.terminal.kill",
-    "when": "terminalEditorFocus || (terminalFocus && terminalCount > 1)"
-  },
-
-  // Prevents window closing when closing a terminal window in the panel
-  {
-    "key": "cmd+w",
-    "command": "workbench.action.closeActiveEditor",
-    "when": "!terminalFocusInAny"
-  },
-  {
-    "key": "cmd+w",
-    "command": "-workbench.action.closeActiveEditor"
-  },
-
-  // Kill editor terminal
-  {
-    "key": "cmd+w",
-    "command": "workbench.action.terminal.killEditor",
-    "when": "terminalEditorFocus"
-  },
-
-  // === Which-key Controls ===
-  {
-    "key": "backspace",
-    "command": "whichkey.undoKey",
-    "when": "whichkeyVisible"
-  },
-  {
-    "key": "ctrl+=",
-    "command": "workbench.action.increaseViewSize"
-  },
-  {
-    "key": "ctrl+-",
-    "command": "workbench.action.decreaseViewSize"
-  },
-  {
-    "key": "ctrl+cmd+o",
-    "command": "workbench.action.gotoSymbol",
-    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
-  },
-  {
-    "key": "shift+cmd+o",
-    "command": "-workbench.action.gotoSymbol",
-    "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
-  },
-  {
-    "key": "alt+z",
-    "command": "-editor.action.toggleWordWrap"
-  },
-  {
-    "key": "alt+z",
-    "command": "-workbench.action.terminal.sizeToContentWidth",
-    "when": "terminalFocus && terminalHasBeenCreated && terminalIsOpen || terminalFocus && terminalIsOpen && terminalProcessSupported"
-  },
-
-  // === Zen Mode ===
-  {
-    "key": "ctrl+z",
-    "command": "workbench.action.toggleZenMode",
-    "when": "!inZenMode"
-  },
-  {
-    "key": "cmd+r z",
-    "command": "-workbench.action.toggleZenMode",
-    "when": "!isAuxiliaryWindowFocusedContext"
-  },
-  {
-    "key": "ctrl+z",
-    "command": "workbench.action.exitZenMode",
-    "when": "inZenMode"
-  },
-  {
-    "key": "escape escape",
-    "command": "-workbench.action.exitZenMode",
-    "when": "inZenMode"
-  },
-
-  // === Miscellaneous ===
-  {
-    "key": "cmd+i",
-    "command": "composerMode.agent"
-  },
-
-  // === Which-key Leader ===
-  {
-    "key": "space",
-    "command": "whichkey.show",
-    "when": "!inputFocus" // This makes it work in any non-input context
-  },
-  {
-    "key": "cmd+m",
-    "command": "editor.emmet.action.wrapWithAbbreviation"
   }
 ]

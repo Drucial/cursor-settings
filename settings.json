@@ -201,7 +201,7 @@
   "vim.easymotion": true, // Vim: enable easymotion
   "vim.leader": " ", // Vim: leader key
   "vim.normalModeKeyBindingsNonRecursive": [
-    { "before": ["<space>"], "commands": ["whichkey.show"] },
+    // { "before": ["<space>"], "commands": ["whichkey.show"] },
     { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] },
     { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] },
     { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] },
@@ -211,7 +211,7 @@
   "vim.smartRelativeLine": true, // Vim: smart relative line numbers
   "vim.useSystemClipboard": true, // Vim: use system clipboard
   "vim.visualModeKeyBindingsNonRecursive": [
-    { "before": ["<space>"], "commands": ["whichkey.show"] },
+    // { "before": ["<space>"], "commands": ["whichkey.show"] },
     { "before": ["/", "w"], "after": ["<leader>", "<leader>", "w"] },
     { "before": ["/", "j"], "after": ["<leader>", "<leader>", "j"] },
     { "before": ["/", "k"], "after": ["<leader>", "<leader>", "k"] },
@@ -475,6 +475,42 @@
               }
             }
           ]
+        }
+      ]
+    }
+  ],
+  "terminal.integrated.tabs.enabled": false,
+  "cursor.cpp.enablePartialAccepts": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["-"],
+      "commands": [
+        {
+          "command": "oil-code.open"
+        }
+      ]
+    },
+    {
+      "before": ["<cr>"],
+      "commands": [
+        {
+          "command": "oil-code.select"
+        }
+      ]
+    },
+    {
+      "before": ["<c-l>"],
+      "commands": [
+        {
+          "command": "oil-code.refresh"
+        }
+      ]
+    },
+    {
+      "before": ["`"],
+      "commands": [
+        {
+          "command": "oil-code.cd"
         }
       ]
     }
